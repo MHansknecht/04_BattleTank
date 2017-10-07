@@ -6,4 +6,4 @@
 ### Lecture list
 * BT01 Intro
 * BT02 Battle Tank Overview
-* BT03 Game Desight Document (GDD)
+* BT03 Game Design Document (GDD)
