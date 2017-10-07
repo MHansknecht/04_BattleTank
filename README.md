@@ -5,3 +5,4 @@
 
 ### Lecture list
 * BT01 Intro
+* BT02 Game Desight Document (GDD)
