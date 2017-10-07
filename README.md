@@ -7,3 +7,4 @@
 * BT01 Intro
 * BT02 Battle Tank Overview
 * BT03 Game Design Document (GDD)
+* BT04 Setup Github "Repo"
