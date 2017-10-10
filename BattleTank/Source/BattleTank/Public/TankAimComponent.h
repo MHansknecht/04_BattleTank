@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Math/Rotator.h"
 #include "TankAimComponent.generated.h"
 
 
@@ -14,22 +15,21 @@ class BATTLETANK_API UTankAimComponent : public UActorComponent
 	GENERATED_BODY()
 
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	// Sets default values for this component's properties
 	UTankAimComponent();
 
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
+	// TODO add SetTurretReference
+
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 	
 private:
 	UStaticMeshComponent* Barrel = nullptr;
+
+	void MoveBarrelTowards(FVector AimDirection);
+
 
 };
