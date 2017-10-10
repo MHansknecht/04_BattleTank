@@ -8,8 +8,10 @@
 #include "Math/Rotator.h"
 #include "TankAimComponent.generated.h"
 
-class UTankBarrel;  //Forward Declaration
+// Forward Declaration
+class UTankBarrel;
 
+// Hold barrels properties and elevate method
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimComponent : public UActorComponent
 {
