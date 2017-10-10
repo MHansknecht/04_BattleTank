@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "TankAimComponent.h"
 #include "Tank.generated.h"  // Put new includes above
 
-class UTankBarrel;  // forward declaration
+// forward Declarations
+class UTankBarrel;
+class UTankAimComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
