@@ -2,6 +2,7 @@
 
 #include "TankAimComponent.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 
 
 // Sets default values for this component's properties
@@ -16,7 +17,14 @@ UTankAimComponent::UTankAimComponent()
 
 void UTankAimComponent::SetBarrelReference(UTankBarrel * BarrelToSet)
 {
+	if (!BarrelToSet) { return; }
 	Barrel = BarrelToSet;
+}
+
+void UTankAimComponent::SetTurretReference(UTankTurret * TurretToSet)
+{
+	if (!TurretToSet) { return; }
+	Turret = TurretToSet;
 }
 
 
@@ -60,8 +68,18 @@ void UTankAimComponent::MoveBarrelTowards(FVector AimDirection)
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(DeltaRotator.Pitch); // TODO Remove Magic Number
+	Barrel->Elevate(DeltaRotator.Pitch);
 
 }
 
+void UTankAimComponent::MoveTurretTowards(FVector AimDirection)
+{
+	// work-out difference between current Turret rotation and aim direction
+	auto TurretRotator = Turret->GetForwardVector().Rotation();
+	auto AimAsRotator = AimDirection.Rotation();
+	auto DeltaRotator = AimAsRotator - TurretRotator;
+
+	Turret->Rotate(DeltaRotator.Yaw);
+
+}
 
