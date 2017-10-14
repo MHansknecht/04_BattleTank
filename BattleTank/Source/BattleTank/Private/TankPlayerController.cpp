@@ -10,14 +10,8 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	auto AimComponent = GetControlledTank()->FindComponentByClass<UTankAimComponent>();
-	if (ensure(AimComponent))
-	{
-		FoundAimComponent(AimComponent);
-	}
-	else
-	{
-	UE_LOG(LogTemp, Warning, TEXT("Player controller cannot find aiming component at begin play"))
-	}
+	if (!ensure(AimComponent)) { return; }
+	FoundAimComponent(AimComponent);
 
 }
 
