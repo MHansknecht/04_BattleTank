@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/Rotator.h"
+#include "Math/Vector.h"
 #include "TankAimComponent.generated.h"
 
 class AProjectile;
@@ -52,6 +53,8 @@ private:
 	
 	void MoveBarrelTowards(FVector AimDirection);
 
+	bool IsBarrelMoving();
+
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
@@ -66,4 +69,5 @@ private:
 
 	double LastFireTime = 0;
 	
+	FVector AimDirection;
 };
