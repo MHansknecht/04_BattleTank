@@ -19,12 +19,14 @@ UTankAimComponent::UTankAimComponent()
 
 void UTankAimComponent::BeginPlay()
 {
+	Super::BeginPlay();
 	// so first fire is after initial reload
 	LastFireTime = FPlatformTime::Seconds();
 }
 
 void UTankAimComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
+
 	if ((FPlatformTime::Seconds() - LastFireTime) < ReloadTimeInSeconds)
 	{
 		FiringState = EFiringState::Reloading;
@@ -104,7 +106,6 @@ void UTankAimComponent::Fire()
 			Barrel->GetSocketLocation(FName("Projectile")),
 			Barrel->GetSocketRotation(FName("Projectile"))
 			);
-
 		Projectile->LaunchProjectile(LaunchSpeed);
 	}
 };
