@@ -8,6 +8,8 @@
 #include "Math/Rotator.h"
 #include "TankAimComponent.generated.h"
 
+
+
 // Enum for aiming state
 UENUM()
 enum class EFiringState : uint8 
@@ -30,10 +32,11 @@ class BATTLETANK_API UTankAimComponent : public UActorComponent
 
 public:	
 
+	void AimAt(FVector HitLocation);
+
+
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret * TurretToSet);
-
-	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -42,6 +45,9 @@ protected:
 private:
 	// Sets default values for this component's properties
 	UTankAimComponent();
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float LaunchSpeed = 5000;
 
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
