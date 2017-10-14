@@ -7,6 +7,11 @@ UTankTrack::UTankTrack()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
+void UTankTrack::OnRegister() {
+	Super::OnRegister();
+	PrimaryComponentTick.bCanEverTick = true;
+}
+
 void UTankTrack::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
 	// Calculate the slippage speed
