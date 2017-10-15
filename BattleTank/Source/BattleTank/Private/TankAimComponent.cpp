@@ -42,6 +42,15 @@ void UTankAimComponent::TickComponent(float DeltaTime, enum ELevelTick TickType,
 	// TODO Handling firing in locked state
 }
 
+EFiringState UTankAimComponent::GetFiringState() const
+{
+	return FiringState;
+}
+
+int UTankAimComponent::GetRoundsLeft() const
+{
+	return RoundsLeft;
+}
 
 void UTankAimComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret * TurretToSet)
 {
